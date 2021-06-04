@@ -3,7 +3,7 @@ FROM golang:1.15-alpine3.12 AS gobuilder-stage
 LABEL "purpose"="Service Depleoyment using Multi-Stage builds."
 
 WORKDIR /usr/src/goapp
-COPY goapp.go .
+COPY ./goapp.go .
 RUN CGO_ENABLED=0 GODOS=linux GOARCH=amd64 go build -o /usr/local/bin/gostart
 
 FROM scratch AS runtime-stage
